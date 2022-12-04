@@ -1,8 +1,5 @@
 $(document).ready(function(){
 
-  // ******************************************* City Input and Search History ******************************************* //              
-  
-  // Display last search history using a for loop, if else statements and localStorage
   var searchedCitiesArray = [];
   
   // On click function for stored cities
@@ -56,6 +53,19 @@ $(document).ready(function(){
       }
   }           
   
+
+// need var to conver city to lat and long //
+function convert (city) {
+
+var cityUrl = "https://nominatim.openstreetmap.org/search?city=" + city;
+}
+
+
+var cityLL = ???????????
+
+
+
+
   // Created apiKey to call the OpenWeatherMap API
   var apiKey = "7d077bf9b00e1862a7d8cccb2be136cc";
   
@@ -63,7 +73,7 @@ $(document).ready(function(){
   function getWeather (city) {
 
       // Build the URL needed to query the database of the OpenWeatherMap API
-      var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey;
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + cityLL + "&limit=5&appid=" + apiKey;
   
       // Run AJAX GET call to request the OpenWeatherMap API
       $.ajax({
@@ -146,5 +156,5 @@ $(document).ready(function(){
   
           });
       } 
-  getWeather("Los Angeles");
+  getWeather();
   }); 
