@@ -21,33 +21,102 @@
   </header>
 
 
-  <main class="flex-row justify-space-between">
-    <div class="col-12 col-md-4">
+  <div class="container">
+    <div class="row">
+        <div class="col-6 col-md-4 card" id="searchHistory">
+            <form class="form-group">
+                <label for="search-term">Search for a City:</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" type="submit" id="searchBtn"><i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div id="previousSearches"></div>
+        </div>
 
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search For Weather</h3>
-        <form id="user-form" class="card-body">
-          <label class="form-label" for="city">City Name</label>
-          <input name="city" id="city" type="text" autofocus="true" class="form-input" />
-          <button type="submit" class="btn">Get Forecast</button>
-        </form>
-      </div>
+<!--Current City card-->
 
-      <div class="card">
-        <h3 class="card-header text-uppercase">Searched Cities</h3>
-        <div id="language-buttons" class="card-body">
-          <button name="searched" class="btn"></button>
-          </div>
-      </div>
-    </div>
+<main class="col-md-8 p-4 card">
+    <section>
+        <div class="card CurrentWeather4" style="width: 100%;">
 
-    <div class="col-12 col-md-8">
-      <h2 class="subtitle">Forecast for: <span id="searched=city"></span></h2>
-      <div id="searche-city" class="city-list"></div>
-    </div>
-  </main>
+          <!-- requested info from api -->
+                <div class="currentCity ml-2"></div>
+                <div class="windSpeed ml-2"></div>
+                <div class="humidity ml-2"></div>
+                <div class="temperature ml-2"></div>
+                <div class="uvIndex"></div>
+                <h6 class="mb-4 ml-2 card" type=text id="uvIndex"> </h6>
+                <div class="col-md-2 icon"><i id="weatherIcon"></i></div>
+                </div>
+    </section> 
 
-  <script src="./assets/js/homepage.js"></script>
+    <!--5 Day Forecast-->
+
+    <section id="forecast">
+        <div class="container"> 
+            <h3 class="row mt-4 ml-4 mb-4">5-Day Forecast</h3>
+                <div class="row mt-8 ml-8 mb-8">
+                    <div class="card-group">
+                             <div class="card f1">
+                                <div class="card-body text-center">
+                                    <!--1 Day Date = CurrentDate -->
+                                    <h6 id="1dayForecast"></h6>
+                                    <div class="row"><i id="1dayIcon"></i></div>
+                                    <text class="row" id="1dayHumidity"> </text> 
+                                    <text class="row" id="1dayTemperature"> </text>
+                                </div>
+                            </div>
+                            <div class="card col f2">
+                                <div class="card-body text-center">
+                                    <!--2 Day Date -->
+                                    <h6 id="2dayForecast"></h6>
+                                    <div class="row"><i id="2dayIcon"></i></div>
+                                    <text class="row" id="2dayHumidity"> </text> 
+                                    <text class="row" id="2dayTemperature"> </text>
+                                </div>
+                            </div>
+                            <div class="card col f3">
+                                <div class="card-body text-center">
+                                <!--3 Day Date -->
+                                    <h6 id="3dayForecast"></h6>
+                                    <div class="row"><i id="3dayIcon"></i></div>
+                                    <text class="row" id="3dayHumidity"> </text> 
+                                    <text class="row" id="3dayTemperature"> </text>
+                                </div>
+                            </div>
+                            <div class="card col f4">
+                                <div class="card-body text-center">
+                                <!--4 Day Date -->
+                                    <h6 id="4dayForecast"></h6>
+                                    <div class="row"><i id="4dayIcon"></i></div>
+                                    <text class="row" id="4dayHumidity"> </text> 
+                                    <text class="row" id="4dayTemperature"> </text>
+                                </div>
+                            </div>
+                            <div class="card col f5">
+                                <div class="card-body text-center">
+                                <!--5 Day Date -->
+                                    <h6 id="5dayForecast"></h6>
+                                    <div class="row"><i id="5dayIcon"></i></div>
+                                    <text class="row" id="5dayHumidity"> </text> 
+                                    <text class="row" id="5dayTemperature"> </text>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+        </div>
+    </section>    
+</main>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="assets/js/weather.js"></script>
+
 </body>
-
 </html>
