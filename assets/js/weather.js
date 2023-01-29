@@ -33,7 +33,11 @@ $(document).ready(function(){
       // Clear out search bar when user searches for city
       $("#searchInput").val("");
       // Event for ajax calls to to getWeather api function
+<<<<<<< HEAD
       convert(city);
+=======
+      getWeather(city);
+>>>>>>> 917e478e83f8017ded5848af5f3f46005f7994ec
   }
   
   //Create function to display cities search History stored in localStorage
@@ -57,6 +61,7 @@ $(document).ready(function(){
 // need var to conver city to lat and long //
 function convert (city) {
 
+<<<<<<< HEAD
 var cityURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey;
     $.ajax({
           url: cityURL,
@@ -75,15 +80,32 @@ var cityURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit
             getWeather(lat, lon)
 }})
 }     
+=======
+var cityUrl = "https://nominatim.openstreetmap.org/search?city=" + city;
+}
+
+
+var cityLL = ???????????
+
+
+
+>>>>>>> 917e478e83f8017ded5848af5f3f46005f7994ec
 
   // Created apiKey to call the OpenWeatherMap API
   var apiKey = "7d077bf9b00e1862a7d8cccb2be136cc";
   
   // Current weather function
+<<<<<<< HEAD
   function getWeather (lat, lon) {
 
       // Build the URL needed to query the database of the OpenWeatherMap API
       var queryURL = "https://api.openweathermap.org/data/3.0/onecall?lat=" + lat + "&lon=" + lon} + "&appid=" + apiKey;
+=======
+  function getWeather (city) {
+
+      // Build the URL needed to query the database of the OpenWeatherMap API
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + cityLL + "&limit=5&appid=" + apiKey;
+>>>>>>> 917e478e83f8017ded5848af5f3f46005f7994ec
   
       // Run AJAX GET call to request the OpenWeatherMap API
       $.ajax({
