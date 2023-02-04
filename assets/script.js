@@ -1,7 +1,7 @@
-var cityResEl = $("#cityResult");
-var tempResEl = $("#tempResult");
-var humidityResEl = $("#humidityResult");
-var windResEl = $("#windResult");
+var cityResEl = $("#cityRes");
+var tempResEl = $("#tempRes");
+var humidityResEl = $("#humidityRes");
+var windResEl = $("#windRes");
 var mainIcon =$("#mainIcon");
 var buttonList = $("#buttonsList");
 
@@ -19,7 +19,7 @@ $(document).ready(function (){
 
 var APIKey = "&units=imperial&APPID=b0d9f95a725de4686ccefd028da0f26c";
 var url =  "https://api.openweathermap.org/data/2.5/weather?q=";
-var UVIndexText = $("#UVIndexResult");
+var UVIndexText = $("#UVIndexRes");
 
 
 function currentWeather(userInput) {
