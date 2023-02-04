@@ -1,20 +1,10 @@
-var cityResultText = $("#cityResult");
-var tempResultText = $("#tempResult");
-var humidityResult = $("#humidityResult");
-var windResultText = $("#windResult");
+var cityResEl = $("#cityResult");
+var tempResEl = $("#tempResult");
+var humidityResEl = $("#humidityResult");
+var windResEl = $("#windResult");
 var mainIcon =$("#mainIcon");
-var rowCards = $("#fiveDayCards");
-var dayForecast = $("#fiveDay");
-var cardDisplay = $("#cardDisplay");
-var UVIndexText = $("#UVIndexResult");
 var buttonList = $("#buttonsList");
-var forecastDate = {};
-var forecastIcon = {};
-var forecastTemp = {};
-var forecastHum = {};
-var today = moment().format('DD' + "/" + 'MM' + '/' + 'YYYY');
-var APIKey = "&units=imperial&APPID=b0d9f95a725de4686ccefd028da0f26c";
-var url =  "https://api.openweathermap.org/data/2.5/weather?q=";
+
 var citiesArray = JSON.parse(localStorage.getItem("Saved City")) || [];
 
 $(document).ready(function (){
@@ -25,6 +15,13 @@ $(document).ready(function (){
 
 });
 
+// This is the function to get the information from the API
+
+var APIKey = "&units=imperial&APPID=b0d9f95a725de4686ccefd028da0f26c";
+var url =  "https://api.openweathermap.org/data/2.5/weather?q=";
+var UVIndexText = $("#UVIndexResult");
+
+
 function currentWeather(userInput) {
     mainIcon.empty();
     var queryURL = url + userInput + APIKey;
@@ -32,21 +29,25 @@ function currentWeather(userInput) {
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        var cityInfo = response.name;
-        var country = response.sys.country; 
-        var temp = response.main.temp;
-        var humidity = response.main.humidity;
-        var wind = response.wind.speed;
-        var lat = response.coord.lat;
-        var lon = response.coord.lon;
+        var cityEl = response.name;
+        var countryEl = response.sys.country; 
+        var tempEl = response.main.temp;
+        var humidityEL = response.main.humidity;
+        var windEl = response.wind.speed;
+        var latEL = response.coord.lat;
+        var lonEl = response.coord.lon;
         var icon = response.weather[0].icon;
-        var UVindexURL = "https://api.openweathermap.org/data/2.5/uvi?" + "lat=" + lat + "&" + "lon=" + lon + "&APPID=b0d9f95a725de4686ccefd028da0f26c";
+
+        // call the API from here
+        var UVindexURL = "https://api.openweathermap.org/data/2.5/uvi?" + "lat=" + latEL + "&" + "lon=" + lonEl + "&APPID=b0d9f95a725de4686ccefd028da0f26c";
         var newImgMain = $("<img>").attr("class", "card-img-top").attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png");
         mainIcon.append(newImgMain);
-        cityResultText.text(cityInfo + ", " + country + " " + today);
-        tempResultText.text("Temperature: " + temp + " ºF");
-        humidityResult.text("Humidity: " + humidity + " %");
-        windResultText.text("Wind Speed: " + wind + " MPH");
+        
+        // pass results from API here
+        cityResEl.text(cityEl + ", " + countryEl + " " + today);
+        tempResEl.text("Temperature: " + tempEl + " ºF");
+        humidityResEl.text("Humidity: " + humidityEL + " %");
+        windResEl.text("Wind Speed: " + windEl + " MPH");
         $.ajax({
             url: UVindexURL,
             method: "GET"
@@ -70,6 +71,16 @@ function currentWeather(userInput) {
         })    
     })
     }
+// forecast variables here for current and five day to build the cards
+var rowCards = $("#fiveDayCards");
+var dayForecast = $("#fiveDay");
+var cardDisplay = $("#cardDisplay");
+
+var forecastDate = {};
+var forecastIcon = {};
+var forecastTemp = {};
+var forecastHum = {};
+    var today = moment().format('DD' + "/" + 'MM' + '/' + 'YYYY');
 
     function forecast (userInput) {
         dayForecast.empty();
