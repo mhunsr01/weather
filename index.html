@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
 </head>
 <body>
-    <!--This is the nav bar-->
-    <nav class="navbar navbar-light" style="background-color: #58a85c" id="nav">
+    <!--This is the navigation bar formatted by bootstrap-->
+    <nav class="navbar navbar-light" style="background-color: #58a85c" id="navbar">
         <a href="index.html"><i class="fas fa-cloud-sun"></i>  5-Day Forecast  <i class="fas fa-cloud-sun"></i></a>
     </nav>
 
-    <!-- Container for the search function -->
+    <!-- This container holds the search function -->
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4">
-                <div class="row" id="row1">
+                <div class="row" id="search">
                     Search for a City:
                 </div>
                 <div class="row">
@@ -28,19 +28,19 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search for a City!" aria-label="Search" id="searchInput">
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-cloud-sun"></i></button>
                     </form>
-                <div class="row" id="lastSearch">
+                <div class="row" id="prevSearch">
                     <div class="card" style="width: 18rem;" id="buttonsList">
-                        <!-- Previous search buttons go here -->
+                        <!-- This is what the user searched for previously -->
                     </div>
                 </div>
     
                 </div>
             </div>
 
-            <!-- Current Weather Card -->
+            <!-- This will display todays weather -->
 
             <div class="col-lg-8" id="allWeather">
-                <div class="row" id="weatherCard">
+                <div class="row" id="currentWweather">
                     <div class="card" style="width: 98%;" id="cardDisplay">
 
                         <div class="row">
@@ -63,9 +63,9 @@
                 </div>
 
                 <!-- 5 Day Forecast -->
-                <div class="row" id="row5day" ></div>
+                <div class="row" id="fiveDay" ></div>
 
-                <div class="row" id="rowCards" >
+                <div class="row" id="fiveDayCards" >
                     <!-- Cards Goes Here -->
                 </div>
             </div>
@@ -83,8 +83,6 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
     
